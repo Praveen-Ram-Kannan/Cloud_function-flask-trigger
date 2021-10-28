@@ -10,7 +10,17 @@ def http_sample_function_1(request):
     table = "dataanalysis-330007.EmployeeDetails.Employee"
 
     job_config = bigquery.LoadJobConfig(
-          autodetect=True, skip_leading_rows=1, source_format=bigquery.SourceFormat.CSV,
+          # autodetect=True,
+        schema=[
+            bigquery.SchemaField("ID", "INTEGER"),
+            bigquery.SchemaField("Prefix", "STRING"),
+            bigquery.SchemaField("FirstName", "STRING"),
+            bigquery.SchemaField("MiddleName", "STRING"),
+            bigquery.SchemaField("LastName", "STRING"),
+            bigquery.SchemaField("Gender", "STRING"),
+            bigquery.SchemaField("EMail", "STRING"),
+        ],
+        skip_leading_rows=1, source_format=bigquery.SourceFormat.CSV,
     )
     uri = f"gs://{bucket_name}/{file_name}"
 
