@@ -8,6 +8,7 @@ def http_sample_function_1(request):
     bucket_name = request_json.get('bucket')
     file_name = request_json.get('file')
     table = "dataanalysis-330007.EmployeeDetails.Employee"
+    print("Start")
 
     job_config = bigquery.LoadJobConfig(
           # autodetect=True,
