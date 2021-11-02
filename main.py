@@ -32,4 +32,5 @@ def http_sample_function_1(request):
 
     destination_table = bq_client.get_table(table)  # Make an API request.
     print("Loaded {} rows.".format(destination_table.num_rows))
+    print("End")
     return f"Loaded {destination_table.num_rows} rows."
